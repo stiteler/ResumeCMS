@@ -14,7 +14,7 @@ candidates, and the user can double click on each candidate to bring up a window
 resume for that candidate.  The user can also delete candidates from the database. 
 
 
-[screenshot of CMS app] (ResumeCMS.png)
+[![screenshot of CMS app] (ResumeCMS.png)]
  
 
 Instructions:  
