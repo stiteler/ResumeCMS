@@ -2,7 +2,6 @@
 =========
 
 ##### A Resume CMS and organizer in Java
-=========
 
 
 
@@ -14,8 +13,10 @@ phone, state, and zip code information. A graphical data table represents the en
 candidates, and the user can double click on each candidate to bring up a window showing the 
 resume for that candidate.  The user can also delete candidates from the database. 
 
-[![screenshot of CMS app] (https://github.com/steaz/ResumeCMS/blob/master/ResumeCMS.png) "ResumeCMS.png"]
+
+[![screenshot of CMS app] (ResumeCMS.png) "ResumeCMS.png"]
  
+
 Instructions:  
 To add a resume, you can either input candidate information on the candidate panel on 
 the left side of the application, or you can click the “Parse New Candidate” button.  The parsing 
