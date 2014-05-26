@@ -1,7 +1,7 @@
 ### ResumeCMS
 =========
 
-##### A Resume CMS and organizer in Java
+### A Resume CMS and organizer in Java
 
 
 
@@ -12,10 +12,11 @@ candidate data by hand, or they can import a resume, which gets parsed automatic
 phone, state, and zip code information. A graphical data table represents the entire database of 
 candidates, and the user can double click on each candidate to bring up a window showing the 
 resume for that candidate.  The user can also delete candidates from the database. 
+
 =========
 
 ![screenshot of CMS app] (ResumeCMS.png)
- =========
+
 
 #### Instructions:  
 =========
