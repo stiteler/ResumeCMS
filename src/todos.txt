@@ -1,0 +1,21 @@
+Resume:
+	
+	Documentation
+	hook up menubar
+		import resume
+		delete candidate
+		
+	search - basic by name? 
+	edit candidate already in database
+	Option dialog if save but name not right
+	
+	
+	advanced:
+	email preferences dialog
+	email candidate
+	score resume vs keyword search
+	check for duplicate candidates
+	add sorting by column
+	
+	Minor: 
+		Limit text areas (ex middle init)
