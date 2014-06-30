@@ -11,6 +11,9 @@ public class Search_Test {
 		Search search = new Search(testController.getCandidatesFromDatabase(), query1);
 		Map<Candidate, Integer> results = search.getResults();
 		
-		System.out.println(results);
+		System.out.println("Name: Count");
+		for(Candidate c : results.keySet()) {
+			System.out.println(c.getFirstName() + ": " + results.get(c));
+		}
 	}
 }
