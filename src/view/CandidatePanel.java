@@ -158,10 +158,11 @@ public class CandidatePanel extends JPanel {
 					.getActionCommand() == "soon") {
 				availability = Available.SOON;
 			}
-
+			
+			//TODO If i create a separate event type for search, I have to revert the constructor change on this call here: 
 			CandidateEvent ce = new CandidateEvent(this, 1, resume,
 					firstName, middle, lastName, city, state, zip,
-					email, phoneString, availability);
+					email, phoneString, availability, null);
 
 			if (candEventListener != null) {
 				System.out.println("candidate event emitted from save button");

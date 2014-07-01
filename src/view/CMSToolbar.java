@@ -26,8 +26,8 @@ public class CMSToolbar extends JPanel {
 
 	private JButton addCandButton;
 	private JButton delCandButton;
-	//private JLabel searchLabel;
-	//private JTextField searchBox;
+	private JLabel searchLabel;
+	private JTextField searchBox;
 	private JFileChooser fileChooser;
 	private CandidatePanel candPanelForParse;
 
@@ -46,8 +46,8 @@ public class CMSToolbar extends JPanel {
 
 		addCandButton = new JButton("Parse New Candidate");
 		delCandButton = new JButton("Delete Selected");
-		//searchLabel = new JLabel("Search: ");
-		//searchBox = new JTextField(20);
+		searchLabel = new JLabel("Search: ");
+		searchBox = new JTextField(20);
 		fileChooser = new JFileChooser();
 
 		// setup components:
@@ -68,18 +68,22 @@ public class CMSToolbar extends JPanel {
 				}
 			}
 		});
-		/*
+		
 		searchBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Searching for: " + searchBox.getText());
+				CandidateEvent ce = new CandidateEvent(this, 2, searchBox.getText());
+				if(candEventListener != null) {
+					candEventListener.candidateEventOccurred(ce);
+				}
 			}
 		});
-		*/
+		
 
 		add(addCandButton);
 		add(delCandButton);
-		//add(searchLabel);
-		//add(searchBox);
+		add(searchLabel);
+		add(searchBox);
 	}
 
 	/**

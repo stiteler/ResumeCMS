@@ -1,12 +1,13 @@
 package controller;
 
 import java.util.List;
+import java.util.Map;
 
+import view.CandidateEvent;
+import view.TableEvent;
 import Model.Available;
 import Model.Candidate;
 import Model.Database;
-import view.CandidateEvent;
-import view.TableEvent;
 
 /**
  * Controller will control the communication from our GUI and the view to the
@@ -24,20 +25,33 @@ public class Controller {
 	}
 
 	/**
-	 * Receives candidate events from the GUI and handles the event
-	 * depending on the event type.
+	 * Receives candidate events from the GUI and handles the event depending on
+	 * the event type.
 	 * 
-	 * @param ce CandidateEvent to handle
+	 * @param ce
+	 *            CandidateEvent to handle
 	 */
 	public void handleCandidateEvent(CandidateEvent ce) {
-		if (ce.getEventType() == 0) {
-			handleDeleteEvent(ce);
-		} else if (ce.getEventType() == 3) {
-			handleParseEvent(ce);
-		} else {
-			handleSaveEvent(ce);
+		switch (ce.getEventType()) {
+			case 0: handleDeleteEvent(ce);
+					break;
+			case 1: handleSaveEvent(ce);
+					break;
+			case 2: handleSearchEvent(ce);
+					break;
+			case 3: handleParseEvent(ce);
+		}
+
+	}
+	private void handleSearchEvent(CandidateEvent ce) {
+		Search search = new Search(this.getCandidatesFromDatabase(), ce.getOptional());
+		Map<Candidate, Integer> results = search.getResults();
+		System.out.println("Name: Count");
+		for(Candidate c : results.keySet()) {
+			System.out.println(c.getFirstName() + ": " + results.get(c));
 		}
 	}
+
 	/**
 	 * handleDeleteEvent handles a delete candidate event
 	 * 
