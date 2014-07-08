@@ -32,6 +32,7 @@ public class CMSToolbar extends JPanel {
 	private CandidatePanel candPanelForParse;
 
 	private CandidateEventListener candEventListener;
+	private SearchEventListener searchEventListener;
 
 	/**
 	 * Constructor instantiates components, sets the toolbar layout, &
@@ -72,9 +73,9 @@ public class CMSToolbar extends JPanel {
 		searchBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Searching for: " + searchBox.getText());
-				CandidateEvent ce = new CandidateEvent(this, 2, searchBox.getText());
-				if(candEventListener != null) {
-					candEventListener.candidateEventOccurred(ce);
+				SearchEvent se = new SearchEvent(this, searchBox.getText());
+				if(searchEventListener != null) {
+					searchEventListener.searchEventOccurred(se);
 				}
 			}
 		});
@@ -160,5 +161,13 @@ public class CMSToolbar extends JPanel {
 	 */
 	public void setCandidateEventListener(CandidateEventListener cel) {
 		candEventListener = cel;
+	}
+	/**
+	 * Set the search event listener.
+	 * 
+	 * @param sel SearchEventListener to set
+	 */
+	public void setSearchEventListener(SearchEventListener sel) {
+		searchEventListener = sel;
 	}
 }

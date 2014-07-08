@@ -7,7 +7,6 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 
-import Model.Database;
 import controller.Controller;
 
 /**
@@ -18,7 +17,7 @@ import controller.Controller;
  * 
  */
 public class MainWindow extends JFrame implements CandidateEventListener,
-		TableEventListener {
+		TableEventListener, SearchEventListener {
 	private static Controller controller;
 
 	///// Declare components /////
@@ -62,6 +61,7 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 		tablePanel.setData(controller.getCandidatesFromDatabase());
 		candidatePanel.setCandidateEventListener(this);
 		toolbar.setCandidateEventListener(this);
+		toolbar.setSearchEventListener(this);
 		tablePanel.setTableEventListener(this);
 
 		// /// Add Components /////
@@ -113,10 +113,14 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 	 * handles table events. Until prior functionality, the only
 	 * table events are to view resumes.
 	 */
-	public void tableEventOccured(TableEvent te) {
+	public void tableEventOccurred(TableEvent te) {
 		String resume = controller.handleTableEvent(te);
 		// now make a new JFrame with this String:
 		buildResumeWindow(resume);
+	}
+
+	public void searchEventOccurred(SearchEvent se) {
+		controller.handleSearchEvent(se);
 	}
 
 }

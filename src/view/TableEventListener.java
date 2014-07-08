@@ -8,5 +8,5 @@ import java.util.EventListener;
  *
  */
 public interface TableEventListener extends EventListener {
-	public void tableEventOccured(TableEvent te);
+	public void tableEventOccurred(TableEvent te);
 }

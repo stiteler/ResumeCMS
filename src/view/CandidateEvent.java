@@ -26,7 +26,6 @@ public class CandidateEvent extends EventObject {
 	private String phoneString;
 	private Available availability;
 	private File resumeFile;
-	private String optional;
 	/**
 	 * Simple constructor when on info is needed (deletion event)
 	 * 
@@ -36,19 +35,6 @@ public class CandidateEvent extends EventObject {
 	public CandidateEvent(Object source, int eventType) {
 		super(source);
 		this.eventType = eventType;
-	}
-	
-	/**
-	 * Simple constructor to handle search Events? (getting a little bloated, no?)
-	 * TODO: would be better to create a new Event type: search event, would allow scaling later (advanced search)
-	 * then would be able to handle like a table event, but instead of displaying a resume, display the results
-	 * 
-	 * TODO: Also need to create an enum for CandidateEventType instead of using integers.
-	 */
-	public CandidateEvent(Object source, int eventType, String optional) {
-		super(source);
-		this.eventType = eventType;
-		this.optional = optional;
 	}
 	
 	/**
@@ -87,7 +73,7 @@ public class CandidateEvent extends EventObject {
 	public CandidateEvent(Object arg0, int eventType, String resume,
 			String firstName, String middle, String lastName, String city,
 			String state, String zip, String email, String phoneString,
-			Available availability, String optional) {
+			Available availability) {
 		super(arg0);
 
 		this.eventType = eventType;
@@ -101,7 +87,6 @@ public class CandidateEvent extends EventObject {
 		this.email = email;
 		this.phoneString = phoneString;
 		this.availability = availability;
-		this.optional = optional;
 	}
 
 	/**
@@ -161,9 +146,5 @@ public class CandidateEvent extends EventObject {
 	
 	public int getId() {
 		return id;
-	}
-	
-	public String getOptional() {
-		return optional;
 	}
 }

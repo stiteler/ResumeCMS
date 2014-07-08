@@ -72,7 +72,7 @@ public class CMSDataTablePanel extends JPanel {
 
 				if (tableEventListener != null) {
 					System.out.println("Table row Clicked: " + rowClicked);
-					tableEventListener.tableEventOccured(te);
+					tableEventListener.tableEventOccurred(te);
 				}
 			}
 

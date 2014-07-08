@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import view.CandidateEvent;
+import view.SearchEvent;
 import view.TableEvent;
 import Model.Available;
 import Model.Candidate;
@@ -32,19 +33,24 @@ public class Controller {
 	 *            CandidateEvent to handle
 	 */
 	public void handleCandidateEvent(CandidateEvent ce) {
+		//TODO: Not sure if i put this elsewhere, but need to make a enum for the eventTypes, not ints.
 		switch (ce.getEventType()) {
 			case 0: handleDeleteEvent(ce);
 					break;
 			case 1: handleSaveEvent(ce);
 					break;
-			case 2: handleSearchEvent(ce);
-					break;
 			case 3: handleParseEvent(ce);
 		}
 
 	}
-	private void handleSearchEvent(CandidateEvent ce) {
-		Search search = new Search(this.getCandidatesFromDatabase(), ce.getOptional());
+	
+	/**
+	 * handleSearchEvent handles a search query passed up from the GUI
+	 * 
+	 * @param se SearchEvent Event Object
+	 */
+	public void handleSearchEvent(SearchEvent se) {
+		Search search = new Search(this.getCandidatesFromDatabase(), se.getQuery());
 		Map<Candidate, Integer> results = search.getResults();
 		System.out.println("Name: Count");
 		for(Candidate c : results.keySet()) {
