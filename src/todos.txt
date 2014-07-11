@@ -1,21 +1,28 @@
-Resume:
+TODOS:
+	Display search Results:
+		Create a SearchResultsTableModel
+		Create a SearchResultTablePanel
+		Hook up the plumbing on search event
+		
+	Database
+		Edit candidate already in database
 	
-	Documentation
-	hook up menubar
+	Advanced Search:
+		Augment SearchEvent for individual query selectors
+		Advanced Search Algorithm (Score based rather than just pure match, as it is now)
+		
+	Run Plumbing for/Augment Menu bar:
 		import resume
 		delete candidate
 		
-	search - basic by name? 
-	edit candidate already in database
-	Option dialog if save but name not right
+	Future:
+		Email Candidate Functionality
+		Switch Serialization to a sqlite database (should be easy if the API works to the model)
 	
-	
-	advanced:
-	email preferences dialog
-	email candidate
-	score resume vs keyword search
-	check for duplicate candidates
-	add sorting by column
-	
-	Minor: 
+	Random UX: 
 		Limit text areas (ex middle init)
+		Option dialog if save but name not right
+		check for duplicate candidates
+		add sorting by column
+		keyboard commands - delete key
+		
