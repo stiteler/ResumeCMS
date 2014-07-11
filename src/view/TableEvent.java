@@ -5,6 +5,9 @@ import java.util.EventObject;
  * Class to hold data on Table events emitted by GUI
  * 
  * @author Chris Stiteler
+ * 
+ * TODO: Need to fix the problem of decoupling the TableEvent from the candidate
+ * order that's displayed, essentially need to give table event info about the candidate? 
  *
  */
 public class TableEvent extends EventObject {
