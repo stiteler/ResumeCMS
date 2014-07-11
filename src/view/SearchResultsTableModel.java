@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,14 +10,14 @@ import Model.Candidate;
 
 public class SearchResultsTableModel extends AbstractTableModel {
 	private Map<Candidate, Integer> results;
-	private Candidate[] resultSet;
+	private ArrayList<Candidate> resultSet;
 	private String[] columnHeaders = { "Score", "MI", "Last", "Phone #",
 			"City", "State/Prov", "Zip/Postal", "Available?" };
 	// this relative score will be a percentile integer
 	private int totalScore;
 
 	public SearchResultsTableModel() {
-		
+
 	}
 
 	public int getColumnCount() {
@@ -26,9 +27,13 @@ public class SearchResultsTableModel extends AbstractTableModel {
 	public int getRowCount() {
 		return results.size();
 	}
+	
+	public String getColumnName(int col){
+		return columnHeaders[col];
+	}
 
 	public Object getValueAt(int row, int col) {
-		Candidate cand = resultSet[row];
+		Candidate cand = resultSet.get(row);
 
 		switch (col) {
 		case 0:
@@ -55,19 +60,25 @@ public class SearchResultsTableModel extends AbstractTableModel {
 		}
 	}
 	
-	private Object scoreCandidate(int rawScore) {
-		return rawScore/totalScore;
-		
-	}
-
 	public void setResults(Map<Candidate, Integer> results) {
 		this.results = results;
 		// better way to do this? I don't like it.. hm.
-		this.resultSet = (Candidate[]) results.keySet().toArray();
+		Set<Candidate> keySet = results.keySet();
+		ArrayList<Candidate> candidates = new ArrayList<Candidate>();
+		for(Candidate c : keySet) {
+			candidates.add(c);
+		}
+		this.resultSet = candidates;
+		calculateResultsTotalScore();
+	}
+	
+	private Object scoreCandidate(int rawScore) {
+		return rawScore/totalScore * 100;
+		
 	}
 	
 	// TODO test this
-	public void calculateResultsTotalScore() {
+	private void calculateResultsTotalScore() {
 		int hits = 0;
 		for(Candidate c : resultSet) {
 			hits += results.get(c);
