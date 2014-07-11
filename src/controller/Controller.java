@@ -5,6 +5,7 @@ import java.util.Map;
 
 import view.CandidateEvent;
 import view.SearchEvent;
+import view.SearchResultsViewer;
 import view.TableEvent;
 import Model.Available;
 import Model.Candidate;
@@ -56,6 +57,7 @@ public class Controller {
 		for(Candidate c : results.keySet()) {
 			System.out.println(c.getFirstName() + ": " + results.get(c));
 		}
+		SearchResultsViewer srv = new SearchResultsViewer(this, results);
 	}
 
 	/**
