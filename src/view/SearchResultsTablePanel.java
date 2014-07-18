@@ -43,10 +43,7 @@ public class SearchResultsTablePanel extends JPanel {
 
 			// if nothing was clicked
 			if (rowClicked != -1) {
-				//TODO: This table event is not being executed correctly by the controller
-				// it's not returning the right candidate for the resume viewer if, for instance,
-				// the table is not in order of the database.. need to decouple this ASAP.
-				TableEvent te = new TableEvent(this, rowClicked);
+				TableEvent te = new TableEvent(this, model.getCandidateByRowSelected(rowClicked));
 
 				if (tableEventListener != null) {
 					System.out.println("Search Table row Clicked: " + rowClicked);

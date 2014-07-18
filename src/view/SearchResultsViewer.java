@@ -26,7 +26,10 @@ public class SearchResultsViewer extends JFrame implements TableEventListener {
 	}
 
 	public void tableEventOccurred(TableEvent te) {
-		String resume = controller.handleTableEvent(te);
+		// so if the TableEvent knows about the candidate, it has it's resume. But do I like this? Not sure
+		// What's a best practice here? 
+		//String resume = controller.handleTableEvent(te);
+		String resume = te.getCandidateSelected().getResume();
 		ResumeViewer rv = new ResumeViewer(resume);
 	}
 }

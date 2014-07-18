@@ -8,13 +8,20 @@ import javax.swing.table.AbstractTableModel;
 
 import Model.Candidate;
 
+/**
+ * TODO: Add functionality to sort table by score? 
+ * Do this here, hmm will think on this. 
+ * 
+ * @author Steaz
+ *
+ */
 public class SearchResultsTableModel extends AbstractTableModel {
 	private Map<Candidate, Integer> results;
 	private ArrayList<Candidate> resultSet;
 	private String[] columnHeaders = { "Score", "MI", "Last", "Phone #",
 			"City", "State/Prov", "Zip/Postal", "Available?" };
 	// this relative score will be a percentile integer
-	private int totalScore;
+	private double highestScore = 1;
 
 	public SearchResultsTableModel() {
 
@@ -70,19 +77,26 @@ public class SearchResultsTableModel extends AbstractTableModel {
 		}
 		this.resultSet = candidates;
 		calculateResultsTotalScore();
-	}
-	
-	private Object scoreCandidate(int rawScore) {
-		return rawScore/totalScore * 100;
 		
 	}
 	
-	// TODO test this
+	private Integer scoreCandidate(int rawScore) {
+		System.out.println("Raw score: " + rawScore + "Total Score: " + highestScore);
+		return (int) (rawScore/highestScore * 100);
+	}
+	
+	// TODO test this, should this be in the Search object? Or is it ok here? 
 	private void calculateResultsTotalScore() {
 		int hits = 0;
 		for(Candidate c : resultSet) {
-			hits += results.get(c);
+			if(results.get(c) > highestScore) {
+				hits = results.get(c);
+			}
 		}
-		totalScore =  hits/results.size();
+		highestScore = hits;
+	}
+	
+	public Candidate getCandidateByRowSelected(int row) {
+		return resultSet.get(row);
 	}
 }
