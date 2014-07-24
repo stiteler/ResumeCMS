@@ -76,7 +76,7 @@ public class CMSMenuBar {
 		// set up action listeners:
 		deleteResumeItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CandidateEvent ce = new CandidateEvent(this, 0);
+				CandidateEvent ce = new CandidateEvent(this, CandidateEventType.DELETE);
 				candEventListener.candidateEventOccurred(ce);
 			}
 		});

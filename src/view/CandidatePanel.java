@@ -160,7 +160,7 @@ public class CandidatePanel extends JPanel {
 			}
 			
 
-			CandidateEvent ce = new CandidateEvent(this, 1, resume,
+			CandidateEvent ce = new CandidateEvent(this, CandidateEventType.SAVE, resume,
 					firstName, middle, lastName, city, state, zip,
 					email, phoneString, availability);
 

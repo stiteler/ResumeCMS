@@ -37,6 +37,12 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 	 * Resume viewer component
 	 */
 	private ResumeViewer resumeViewer;
+	/**
+	 * Search Results viewer component, temporary - probably best to have this
+	 * view inside the main window, with options to go back to main DB, but for now
+	 * just want to test the searchresultstable and get the backend done first.
+	 */
+	private SearchResultsViewer searchViewer;
 
 	/**
 	 * Instantiates components, sets them up, adds them to the frame, and
@@ -77,13 +83,7 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 		setVisible(true);
 	}
 
-	/**
-	 * Method when invoked opens a Resume Viewer
-	 * @param resume String to be displayed therein
-	 */
-	private void buildResumeWindow(String resume) {
-		resumeViewer = new ResumeViewer(resume);
-	}
+
 
 	// event handlers:
 	/**
@@ -92,10 +92,10 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 	 * prior to sending to controller.  (ie. can't delete without selection)
 	 */
 	public void candidateEventOccurred(CandidateEvent ce) {
-		if (ce.getEventType() == 0 && tablePanel.getSelectedRow() == -1) {
+		if (ce.getCandidateEventType() == CandidateEventType.DELETE && tablePanel.getSelectedRow() == -1) {
 			System.out.println("Is a delete, but no row selected");
 			return;
-		} else if (ce.getEventType() == 0) { // else if a delete and valid row..
+		} else if (ce.getCandidateEventType() == CandidateEventType.DELETE) { // else if a delete and valid row..
 			int selection = JOptionPane
 					.showConfirmDialog(this, "Are you sure?", "Delete",
 							JOptionPane.YES_NO_CANCEL_OPTION);
@@ -117,6 +117,14 @@ public class MainWindow extends JFrame implements CandidateEventListener,
 		String resume = controller.handleTableEvent(te);
 		// now make a new JFrame with this String:
 		buildResumeWindow(resume);
+	}
+	
+	/**
+	 * Method when invoked opens a Resume Viewer
+	 * @param resume String to be displayed therein
+	 */
+	private void buildResumeWindow(String resume) {
+		resumeViewer = new ResumeViewer(resume);
 	}
 
 	public void searchEventOccurred(SearchEvent se) {

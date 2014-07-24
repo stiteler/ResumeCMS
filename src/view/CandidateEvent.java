@@ -12,7 +12,7 @@ import Model.Available;
  */
 public class CandidateEvent extends EventObject {
 	// 1 for save, 0 for delete, 3 for parse? for now, 2 for search
-	private int eventType;
+	private CandidateEventType eventType;
 
 	private int id;
 	private String resume;
@@ -32,7 +32,7 @@ public class CandidateEvent extends EventObject {
 	 * @param source Object where event emitted
 	 * @param eventType int type of event emitted
 	 */
-	public CandidateEvent(Object source, int eventType) {
+	public CandidateEvent(Object source, CandidateEventType eventType) {
 		super(source);
 		this.eventType = eventType;
 	}
@@ -46,7 +46,7 @@ public class CandidateEvent extends EventObject {
 	 * @param firstName String first name of candidate
 	 * @param lastName String last name of candidate
 	 */
-	public CandidateEvent(Object arg0, int eventType, File resumeFile, String firstName, String lastName) {
+	public CandidateEvent(Object arg0, CandidateEventType eventType, File resumeFile, String firstName, String lastName) {
 		super(arg0);
 		this.eventType = eventType;
 		this.resumeFile = resumeFile;
@@ -70,7 +70,7 @@ public class CandidateEvent extends EventObject {
 	 * @param availability Available availability of candidate (YES, NO, OR SOON)
 	 * @param optional Usage depends on circumstance
 	 */
-	public CandidateEvent(Object arg0, int eventType, String resume,
+	public CandidateEvent(Object arg0, CandidateEventType eventType, String resume,
 			String firstName, String middle, String lastName, String city,
 			String state, String zip, String email, String phoneString,
 			Available availability) {
@@ -92,7 +92,7 @@ public class CandidateEvent extends EventObject {
 	/**
 	 * setters/getters
 	 */
-	public int getEventType() {
+	public CandidateEventType getCandidateEventType() {
 		return eventType;
 	}
 

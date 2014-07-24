@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import view.CandidateEvent;
+import view.CandidateEventType;
 import view.SearchEvent;
 import view.SearchResultsViewer;
 import view.TableEvent;
@@ -34,13 +35,12 @@ public class Controller {
 	 *            CandidateEvent to handle
 	 */
 	public void handleCandidateEvent(CandidateEvent ce) {
-		//TODO: Not sure if i put this elsewhere, but need to make a enum for the eventTypes, not ints.
-		switch (ce.getEventType()) {
-			case 0: handleDeleteEvent(ce);
+		switch (ce.getCandidateEventType()) {
+			case DELETE: handleDeleteEvent(ce);
 					break;
-			case 1: handleSaveEvent(ce);
+			case SAVE: handleSaveEvent(ce);
 					break;
-			case 3: handleParseEvent(ce);
+			case PARSE: handleParseEvent(ce);
 		}
 
 	}

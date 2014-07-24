@@ -63,7 +63,7 @@ public class CMSToolbar extends JPanel {
 		});
 		delCandButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				CandidateEvent ce = new CandidateEvent(this, 0);
+				CandidateEvent ce = new CandidateEvent(this, CandidateEventType.DELETE);
 				if(candEventListener != null) {
 					candEventListener.candidateEventOccurred(ce);
 				}
@@ -144,7 +144,7 @@ public class CMSToolbar extends JPanel {
 								.toString());
 				File selectedResumeFile = fileChooser.getSelectedFile();
 
-				CandidateEvent ce = new CandidateEvent(this, 3, selectedResumeFile,
+				CandidateEvent ce = new CandidateEvent(this, CandidateEventType.PARSE, selectedResumeFile,
 						firstName, lastName);
 
 				if (candEventListener != null) {

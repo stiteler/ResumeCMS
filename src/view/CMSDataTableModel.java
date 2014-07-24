@@ -59,19 +59,20 @@ public class CMSDataTableModel extends AbstractTableModel {
 			return cand.getFirstName();
 		case 1:
 			return cand.getMiddle();
-		case 2: 
+		case 2:
 			return cand.getLastName();
-		case 3: 
+		case 3:
 			return cand.getPhoneString();
-		case 4: 
+		case 4:
 			return cand.getCity();
-		case 5: 
+		case 5:
 			return cand.getState();
 		case 6:
 			return cand.getZip();
 		case 7:
 			return cand.getAvailability();
-		default: return " ";
+		default:
+			return " ";
 		}
 	}
 
