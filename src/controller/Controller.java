@@ -3,11 +3,11 @@ package controller;
 import java.util.List;
 import java.util.Map;
 
-import view.CandidateEvent;
-import view.CandidateEventType;
-import view.SearchEvent;
 import view.SearchResultsViewer;
-import view.TableEvent;
+import view.events.CandidateEvent;
+import view.events.CandidateEventType;
+import view.events.SearchEvent;
+import view.events.TableEvent;
 import Model.Available;
 import Model.Candidate;
 import Model.Database;
