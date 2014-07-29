@@ -7,6 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 
+import view.events.CandidateEvent;
+import view.events.CandidateEventListener;
+import view.events.CandidateEventType;
+import view.events.SearchEvent;
+import view.events.SearchEventListener;
+import view.events.TableEvent;
+import view.events.TableEventListener;
 import controller.Controller;
 
 /**

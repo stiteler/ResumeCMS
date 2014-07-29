@@ -11,6 +11,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+
+import view.events.CandidateEvent;
+import view.events.CandidateEventListener;
+import view.events.CandidateEventType;
 /**
  * CMSMenuBar generates a menu bar for the main window.
  * 

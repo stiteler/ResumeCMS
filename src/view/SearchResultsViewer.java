@@ -5,6 +5,8 @@ import java.util.Map;
 
 import javax.swing.JFrame;
 
+import view.events.TableEvent;
+import view.events.TableEventListener;
 import Model.Candidate;
 import controller.Controller;
 

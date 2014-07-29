@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import view.events.TableEvent;
+import view.events.TableEventListener;
 import Model.Candidate;
 
 //TODO Maybe create a super TablePanel class if it will be implemented 

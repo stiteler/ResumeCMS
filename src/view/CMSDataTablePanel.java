@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.swing.*;
 
+import view.events.TableEvent;
+import view.events.TableEventListener;
 import Model.Candidate;
 
 /**

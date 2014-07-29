@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -19,6 +18,9 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 
+import view.events.CandidateEvent;
+import view.events.CandidateEventListener;
+import view.events.CandidateEventType;
 import Model.Available;
 /**
  * Panel for manual entry of candidate information. It implements the 

@@ -1,4 +1,4 @@
-package view;
+package view.events;
 
 import java.util.EventObject;
 
@@ -6,7 +6,7 @@ public class SearchEvent extends EventObject {
 	String query;
 	
 	//simple search by query
-	SearchEvent(Object source, String query) {
+	public SearchEvent(Object source, String query) {
 		super(source);
 		this.query = query;
 	}

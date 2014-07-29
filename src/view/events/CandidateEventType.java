@@ -1,4 +1,4 @@
-package view;
+package view.events;
 
 /**
  * This is going to be the type of Event for each of the Candidate Events

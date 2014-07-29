@@ -15,6 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import view.events.CandidateEvent;
+import view.events.CandidateEventListener;
+import view.events.CandidateEventType;
+import view.events.SearchEvent;
+import view.events.SearchEventListener;
+
 /**
  * JPanel acting as toolbar for our application. As of now, contains
  * two important buttons, parse new candidate, and delete selected candidate
